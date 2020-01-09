@@ -1,8 +1,8 @@
 class Weather < Formula
   desc "A command line tool to retrieve local weather"
   homepage "https://github.com/LucasFebatis/internal-homebrew-app"
-  url "https://github.com/TheHipbot/weather/raw/master/archive/weather-1.0.0.tar.gz"
-  sha256 "b1c7ab25dfb4530a5e35aa690d79469de5ec419dd284f03868935c2417e1ee3a"
+  url "https://github.com/LucasFebatis/internal-homebrew-app/blob/master/archive/main.tar.gz"
+  sha256 "3074ad54256717041c9006a874988d04a30a92941cac796507889538612c47b9"
   version "1.0.0"
 
   depends_on "curl"
