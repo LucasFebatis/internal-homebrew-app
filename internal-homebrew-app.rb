@@ -1,4 +1,4 @@
-require "formula"
+require "Library/Homebrew/download_strategy.rb"
 
 class InternalHomebrewApp < Formula
   desc "A command line tool to retrieve local weather"
