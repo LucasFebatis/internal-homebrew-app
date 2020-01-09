@@ -1,4 +1,4 @@
-class InternalHelloWorld < Formula
+class InternalHomebrewApp < Formula
   desc "A command line tool to retrieve local weather"
   homepage "https://github.com/LucasFebatis/internal-homebrew-app"
   url "https://github.com/LucasFebatis/internal-homebrew-app/blob/master/archive/main.tar.gz"
