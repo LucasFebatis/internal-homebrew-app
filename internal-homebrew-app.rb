@@ -1,3 +1,5 @@
+require "download_strategy"
+
 class InternalHomebrewApp < Formula
   desc "A command line tool to retrieve local weather"
   homepage "https://github.com/LucasFebatis/internal-homebrew-app"
