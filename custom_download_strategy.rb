@@ -87,8 +87,6 @@ class CustomGitHubPrivateRepositoryReleaseDownloadStrategy < CustomGitHubPrivate
     req['Accept'] = 'application/octet-stream'
     req['Authorization'] = "token #{@github_token}"
 
-    puts "TesteDepoisTeste"
-
     res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => uri.scheme == 'https') do |http|
       http.request(req)
     end
@@ -101,9 +99,7 @@ class CustomGitHubPrivateRepositoryReleaseDownloadStrategy < CustomGitHubPrivate
   def _fetch(url:, resolved_url:)
     # HTTP request header `Accept: application/octet-stream` is required.
     # Without this, the GitHub API will respond with metadata, not binary.
-    curl_download url, "--header", "Authorization: token #{@github_token}", to: temporary_path
-    puts "TesteDepois"
-    puts @github_token
+    curl_download url, "--header", "Accept: application/vnd.github.v3.raw", "--header", "Authorization: token #{@github_token}", to: temporary_path
   end
 
   def asset_id
