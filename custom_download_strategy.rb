@@ -9,6 +9,8 @@ require "download_strategy"
 # it lets you use a private GitHub repository for internal distribution.  It
 # works with public one, but in that case simply use CurlDownloadStrategy.
 class CustomGitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
+  require 'uri'
+  require 'net/http'
 
   def initialize(url, name, version, **meta)
     super
