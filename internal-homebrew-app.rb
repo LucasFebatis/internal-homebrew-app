@@ -9,14 +9,8 @@ class MyDownloadStrategy < GitDownloadStrategy
     http = Net::HTTP.new(url.host, url.port)
 
     request = Net::HTTP::Get.new(url)
-    request["Accept"] = 'application/vnd.github.v3.raw'
     request["Authorization"] = 'token 95fc9f932befdaa34fccc78e46b65a2c8c29165e'
-    request["User-Agent"] = 'PostmanRuntime/7.20.1'
-    request["Cache-Control"] = 'no-cache'
-    request["Postman-Token"] = '02a202ba-3c22-4350-b508-4342bebcc397,ece5353b-2b82-4daf-87fc-68f5ce3adfaf'
-    request["Host"] = 'api.github.com'
     request["Accept-Encoding"] = 'gzip, deflate'
-    request["Cookie"] = '_octo=GH1.1.341585226.1578605035'
     request["Connection"] = 'keep-alive'
     request["cache-control"] = 'no-cache'
 
