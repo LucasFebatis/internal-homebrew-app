@@ -1,4 +1,4 @@
-require "download_strategy"
+require_relative "./custom_download_strategy.rb"
 
 class InternalHomebrewApp < Formula
   desc "A command line tool to retrieve local weather"
@@ -9,7 +9,6 @@ class InternalHomebrewApp < Formula
 
   depends_on "curl"
   depends_on "git"
-  depends_on "download_strategy"
 
   bottle :unneeded
 
