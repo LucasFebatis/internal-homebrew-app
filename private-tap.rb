@@ -1,5 +1,3 @@
-require_relative "./custom_download_strategy.rb"
-
 class PrivateTap < Formula
   desc "A command line tool to retrieve local weather"
   homepage "https://github.com/LucasFebatis/internal-homebrew-app"
