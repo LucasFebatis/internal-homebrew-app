@@ -14,8 +14,9 @@ class CustomGitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
 
   def initialize(url, name, version, **meta)
     super
-    parse_url_pattern
-    set_github_token
+    download_url
+    # parse_url_pattern
+    # set_github_token
   end
 
   def parse_url_pattern
@@ -27,7 +28,18 @@ class CustomGitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
   end
 
   def download_url
-    "https://github.com/#{@owner}/#{@repo}/#{@filepath}"
+    #"https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}"
+    #blah = curl_output "--header", "Accept: application/octet-stream", "--header", "Authorization: token #{@github_token}", "-I"
+    uri = URI("https://api.github.com/repos/LucasFebatis/internal-homebrew-app/contents/archive/main.tar.gz")
+    req = Net::HTTP::Get.new(uri)
+    req['Accept'] = 'application/vnd.github.v3.raw'
+    req['Authorization'] = "token #{@github_token}"
+
+    res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+      http.request(req)
+    end
+
+    res['location']
   end
 
   private
@@ -42,6 +54,7 @@ class CustomGitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
       raise CurlDownloadStrategyError, "Environmental variable HOMEBREW_GITHUB_API_TOKEN is required."
     end
 
+    validate_github_repository_access!
   end
 
   def validate_github_repository_access!
