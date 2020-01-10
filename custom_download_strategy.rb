@@ -33,12 +33,13 @@ class CustomGitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
   private
 
   def _fetch(url:, resolved_url:)
-    put github_token
     curl_download download_url, "--header", "Authorization: token #{@github_token}", to: temporary_path
   end
 
   def set_github_token
     @github_token = ENV["HOMEBREW_GITHUB_API_TOKEN"]
+    put "Teste"
+    put @github_token
     unless @github_token
       raise CurlDownloadStrategyError, "Environmental variable HOMEBREW_GITHUB_API_TOKEN is required."
     end
