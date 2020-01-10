@@ -4,7 +4,7 @@ class MyDownloadStrategy < GitDownloadStrategy
     require 'uri'
     require 'net/http'
 
-    url = URI("https://api.github.com/repos/LucasFebatis/internal-homebrew-app/contents/archive/main.tar.gz")
+    url = URI("https://github.com/LucasFebatis/internal-homebrew-app/blob/master/archive/main.tar.gz")
 
     http = Net::HTTP.new(url.host, url.port)
 
