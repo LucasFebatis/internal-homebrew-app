@@ -42,11 +42,11 @@ class CustomGitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
       raise CurlDownloadStrategyError, "Environmental variable HOMEBREW_GITHUB_API_TOKEN is required."
     end
 
-    validate_github_repository_access!
   end
 
   def validate_github_repository_access!
     # Test access to the repository
+    GitHub.repository(@owner, @repo)
   rescue GitHub::HTTPNotFoundError
     # We only handle HTTPNotFoundError here,
     # becase AuthenticationFailedError is handled within util/github.
