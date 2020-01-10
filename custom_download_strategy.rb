@@ -1,3 +1,5 @@
+require "download_strategy"
+
 # GitHubPrivateRepositoryDownloadStrategy downloads contents from GitHub
 # Private Repository. To use it, add
 # `:using => :github_private_repo` to the URL section of
@@ -6,9 +8,10 @@
 # strategy is suitable for corporate use just like S3DownloadStrategy, because
 # it lets you use a private GitHub repository for internal distribution.  It
 # works with public one, but in that case simply use CurlDownloadStrategy.
-class CustomGitHubPrivateRepositoryDownloadStrategy
+class CustomGitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
 
   def initialize(url, name, version, **meta)
+    super
     download_url
     # parse_url_pattern
     # set_github_token
