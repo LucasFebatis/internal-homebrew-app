@@ -82,9 +82,9 @@ class CustomGitHubPrivateRepositoryReleaseDownloadStrategy < CustomGitHubPrivate
   def download_url
     #"https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}"
     #blah = curl_output "--header", "Accept: application/octet-stream", "--header", "Authorization: token #{@github_token}", "-I"
-    uri = URI("https://api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}")
+    uri = URI("https://api.github.com/repos/LucasFebatis/internal-homebrew-app/contents/archive/main.tar.gz")
     req = Net::HTTP::Get.new(uri)
-    req['Accept'] = 'application/octet-stream'
+    req['Accept'] = 'application/vnd.github.v3.raw'
     req['Authorization'] = "token #{@github_token}"
 
     res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => uri.scheme == 'https') do |http|
