@@ -33,6 +33,7 @@ class CustomGitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
   private
 
   def _fetch(url:, resolved_url:)
+    put github_token
     curl_download download_url, "--header", "Authorization: token #{@github_token}", to: temporary_path
   end
 
