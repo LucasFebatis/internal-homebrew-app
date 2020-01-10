@@ -33,7 +33,6 @@ class CustomGitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
   private
 
   def _fetch(url:, resolved_url:)
-    puts download_url
     curl_download download_url, "--header", "Authorization: token #{@github_token}", to: temporary_path
   end
 
@@ -100,6 +99,8 @@ class CustomGitHubPrivateRepositoryReleaseDownloadStrategy < CustomGitHubPrivate
   def _fetch(url:, resolved_url:)
     # HTTP request header `Accept: application/octet-stream` is required.
     # Without this, the GitHub API will respond with metadata, not binary.
+    puts "Teste"
+    puts download_url
     curl_download download_url, "--header", "Accept: application/octet-stream", to: temporary_path
   end
 
