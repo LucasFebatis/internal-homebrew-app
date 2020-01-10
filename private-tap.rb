@@ -1,6 +1,6 @@
 require_relative "./custom_download_strategy.rb"
 
-class InternalHomebrewApp < Formula
+class PrivateTap < Formula
   desc "A command line tool to retrieve local weather"
   homepage "https://github.com/LucasFebatis/internal-homebrew-app"
   url "https://api.github.com/repos/LucasFebatis/internal-homebrew-app/contents/archive/main.tar.gz", :using => CustomGitHubPrivateRepositoryDownloadStrategy
