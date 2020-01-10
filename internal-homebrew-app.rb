@@ -9,6 +9,7 @@ class InternalHomebrewApp < Formula
 
   depends_on "curl"
   depends_on "git"
+  depends_on "download_strategy"
 
   bottle :unneeded
 
