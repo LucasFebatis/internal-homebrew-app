@@ -14,6 +14,10 @@ class CustomGitPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
 
   def initialize(url, name, version, **meta)
     super
+    print url
+    print name
+    print version
+    
     Kernel.system 'curl --user user:pass https://bitbucket.org/lucasbatistafcamara/private-tap/src/master/archive/main.tar.gz >main.tar.gz' 
     # download_url
     # parse_url_pattern
