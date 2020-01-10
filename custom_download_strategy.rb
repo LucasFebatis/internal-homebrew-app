@@ -101,7 +101,7 @@ class CustomGitHubPrivateRepositoryReleaseDownloadStrategy < CustomGitHubPrivate
     # Without this, the GitHub API will respond with metadata, not binary.
     puts "Teste"
     puts url
-    curl_download download_url, "--header", "Accept: application/octet-stream", "--header", "Authorization: token #{@github_token}", to: temporary_path
+    curl_download url, "--header", "Accept: application/octet-stream", "--header", "Authorization: token #{@github_token}", to: temporary_path
   end
 
   def asset_id
